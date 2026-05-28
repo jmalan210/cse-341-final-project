@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Where the Red Fern Grows", 
+        "author": "Wilson Rawls",
+        "category": "fiction",
+        "genre": "Young Adult",
+        "read": false
+    }, 
+    {
+         "title": "Pride and Prejudice", 
+        "author": "Jane Austen",
+        "category": "fiction",
+        "genre": "Literary Fiction",
+        "read": false
+    }
+]

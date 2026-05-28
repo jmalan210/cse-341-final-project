@@ -1,0 +1,11 @@
+[
+    {
+        "firstName": "Test", 
+        "lastName": "Test",
+        "email": "test@example.com",
+        "joinDate": "2026-05-27",
+        "role": "admin",
+        "displayName": "Testy McTester",
+        "img_url": "/images/users/test.webp"
+        
+}]
