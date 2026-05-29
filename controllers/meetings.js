@@ -1,9 +1,13 @@
 const Meeting = require('../models/Meeting');
+const Book = require('../models/Book');
+const User = require('../models/User')
 
 const getAllMeetings = async (req, res) => {
      //#swagger.tags = ['Meetings'] 
     try {
-        const meetings = await Meeting.find().populate('host', 'firstName lastName');
+        const meetings = await Meeting.find()
+            .populate('host', 'firstName lastName')
+            .populate('book', 'title, author');
         res.status(200).json(meetings);
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -14,7 +18,9 @@ const getSingleMeetingById = async (req, res) => {
     //#swagger.tags = ['Meetings']
     
     try {
-        const meeting = await Meeting.findById(req.params.id).populate('host', 'firstName lastName');
+        const meeting = await Meeting.findById(req.params.id)
+            .populate('host', 'firstName lastName')
+            .populate('book', 'title, author');
         if (!meeting) return res.status(404).json({ messages: 'Meeting not found' });
         res.status(200).json(meeting);
     } catch (err) {
@@ -39,7 +45,8 @@ const getMeetingByMonth = async (req, res) => {
                 $gte: startDate,
                 $lt: endDate
             }
-        }).populate('host', 'firstName lastName');
+        }).populate('host', 'firstName lastName')
+        .populate('book', 'title, author');
         res.status(200).json(meetings);
 
     } catch (err) {
@@ -51,11 +58,12 @@ const createMeeting = async (req, res) => {
      //#swagger.tags = ['Meetings'] 
     try {
         const newMeeting = {
-            date: req.params.date, 
-            location: req.params.location,
-            host: req.params.host
+            date: req.body.date, 
+            location: req.body.location,
+            host: req.body.host,
+            book: req.body.book
         }
-        const meeting = await User.create(newMeeting);
+        const meeting = await Meeting.create(newMeeting);
         res.status(201).json(meeting)
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -67,9 +75,10 @@ const updateMeeting = async (req, res) => {
     
     try {
         const meeting = {
-            date: req.params.date, 
-            location: req.params.location,
-            host: req.params.host
+            date: req.body.date, 
+            location: req.body.location,
+            host: req.body.host,
+            book: req.body.book
         }
         const updatedMeeting = await User.findByIdAndUpdate(req.params.id, user, { after: true, runValidators: true });
         if (!updatedMeeting) return res.status(404).json({ message: 'Meeting not found' });

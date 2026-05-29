@@ -5,20 +5,20 @@ module.exports = {
             firstName: "Jane",
             lastName: "Doe",
             email: "janedoe@example.com",
-            joinDate: new Date.now,
-            role: "admin", 
+            joinDate: new Date(),
+            role: "admin",
             favoriteGenre: "Mystery",
             favoriteAuthor: "Agatha Christie",
             favoriteBook: "Murder on the Orient Express",
             displayName: "JD1997",
             img_url: "images/users/jane_doe"
-        }, 
+        },
         {
             firstName: "Alexis",
             lastName: "Smith",
             email: "alexsmith@example.com",
-            joinDate: new Date.now,
-            role: "user", 
+            joinDate: new Date(),
+            role: "user",
             favoriteGenre: "Dystopian",
             favoriteAuthor: "George Orwell",
             favoriteBook: "1984",
@@ -28,28 +28,39 @@ module.exports = {
     ],
     books: [
         {
-        title: "Pride & Prejudice",
-        author: "Jane Austen",
-        category: "fiction",
-        genre: "Literary Fiction",
-        status: "assigned"
+            title: "Pride & Prejudice",
+            author: "Jane Austen",
+            category: "fiction",
+            genre: "Literary Fiction",
+            status: "assigned"
 
         },
         {
-        title: "Huckleberry Finn",
-        author: "Mark Twain",
-        category: "fiction",
-        genre: "Literary Fiction",
-        status: "unassigned"
+            title: "Huckleberry Finn",
+            author: "Mark Twain",
+            category: "fiction",
+            genre: "Literary Fiction",
+            status: "unassigned"
 
-    }
+        }
     ],
     meetings: [
         {
             date: new Date(2026, 6, 10),
             location: "1234 Birch Street, Anytown, USA",
-            host: "",
-            book: ""
+            
         }
+    ],
+    messages: [
+        {
+            title: "A great read!",
+            body: "Pride and Prejudice was a great read.  What should I read next by Jane Austen?"
+        },
+        
+        {
+            title: "October Book Club",
+            body: "Anyone have a spooky recommendation for October?"
+        }
+
     ]
-}
+};
