@@ -31,7 +31,9 @@ const createUser = async (req, res) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            // joinDate: req.body.joinDate,
+            favoriteGenre: req.body.favoriteGenre,
+            favoriteAuthor: req.body.favoriteAuthor,
+            favoriteBook: req.body.favoriteBook,
             role: req.body.role,
             displayName: req.body.displayName,
             img_url: req.body.img_url
@@ -51,7 +53,9 @@ const updateUser = async (req, res) => {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
-            // joinDate: req.body.joinDate,
+            favoriteGenre: req.body.favoriteGenre,
+            favoriteAuthor: req.body.favoriteAuthor,
+            favoriteBook: req.body.favoriteBook,
             role: req.body.role,
             displayName: req.body.displayName,
             img_url: req.body.img_url

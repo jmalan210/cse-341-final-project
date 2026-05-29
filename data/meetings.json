@@ -1,7 +1,7 @@
 [
     {
-    "date": "2026-06-03",
+    "date": {"$date": "2026-06-03T00:00:00.000Z"},
     "location": "1234 Birch Street, Anytown, USA",
-    "host": "Test Test"
+    "host": "6a17b8f347a1de0ff31d9ec1"
     }
 ]

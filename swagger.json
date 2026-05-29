@@ -47,6 +47,15 @@
                 "email": {
                   "example": "any"
                 },
+                "favoriteGenre": {
+                  "example": "any"
+                },
+                "favoriteAuthor": {
+                  "example": "any"
+                },
+                "favoriteBook": {
+                  "example": "any"
+                },
                 "role": {
                   "example": "any"
                 },
@@ -123,6 +132,15 @@
                 "email": {
                   "example": "any"
                 },
+                "favoriteGenre": {
+                  "example": "any"
+                },
+                "favoriteAuthor": {
+                  "example": "any"
+                },
+                "favoriteBook": {
+                  "example": "any"
+                },
                 "role": {
                   "example": "any"
                 },
@@ -170,6 +188,143 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/meetings/": {
+      "get": {
+        "tags": [
+          "Meetings"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Meetings"
+        ],
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/meetings/{id}": {
+      "get": {
+        "tags": [
+          "Meetings"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Meetings"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Meetings"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/meetings/month/{month}/{year}": {
+      "get": {
+        "tags": [
+          "Meetings"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

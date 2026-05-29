@@ -6,7 +6,7 @@ const bookSchema = new mongoose.Schema({
     author: { type: String, required: true }, 
     category: { type: String, enum: ['fiction', 'nonfiction'], required: true },
     genre: { type: String, required: true, enum: genres },
-    read: {type: Boolean, default: false}
+    status: {type: String, enum:['assigned', 'unassigned', 'read']}
 })
 
 module.exports = mongoose.model('Book', bookSchema)
