@@ -46,7 +46,7 @@ const getMeetingByMonth = async (req, res) => {
                 $lt: endDate
             }
         }).populate('host', 'firstName lastName')
-        .populate('book', 'title, author');
+        .populate('book', 'title author');
         res.status(200).json(meetings);
 
     } catch (err) {
