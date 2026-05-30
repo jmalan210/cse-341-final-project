@@ -7,7 +7,7 @@ const getAllMeetings = async (req, res) => {
     try {
         const meetings = await Meeting.find()
             .populate('host', 'firstName lastName')
-            .populate('book', 'title, author');
+            .populate('book', 'title author');
         res.status(200).json(meetings);
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -20,7 +20,7 @@ const getSingleMeetingById = async (req, res) => {
     try {
         const meeting = await Meeting.findById(req.params.id)
             .populate('host', 'firstName lastName')
-            .populate('book', 'title, author');
+            .populate('book', 'title author');
         if (!meeting) return res.status(404).json({ messages: 'Meeting not found' });
         res.status(200).json(meeting);
     } catch (err) {
@@ -66,6 +66,7 @@ const createMeeting = async (req, res) => {
         const meeting = await Meeting.create(newMeeting);
         res.status(201).json(meeting)
     } catch (err) {
+        console.error(err);
         res.status(400).json({ message: err.message });
     }
 };
@@ -80,7 +81,7 @@ const updateMeeting = async (req, res) => {
             host: req.body.host,
             book: req.body.book
         }
-        const updatedMeeting = await User.findByIdAndUpdate(req.params.id, user, { after: true, runValidators: true });
+        const updatedMeeting = await Meeting.findByIdAndUpdate(req.params.id, meeting, { after: true, runValidators: true });
         if (!updatedMeeting) return res.status(404).json({ message: 'Meeting not found' });
         res.status(201).json(updatedMeeting);
     } catch (err) {
@@ -92,7 +93,7 @@ const deleteMeeting = async (req, res) => {
     //#swagger.tags = ['Meetings']
     
     try {
-        const deletedMeeting = await User.findByIdAndDelete(req.params.id);
+        const deletedMeeting = await Meeting.findByIdAndDelete(req.params.id);
         if (!deletedMeeting) return res.status(404).json({ message: 'Meeting not found' });
         res.status(200).json({ message: 'Meeting deleted' });
 
