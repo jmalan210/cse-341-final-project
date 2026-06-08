@@ -62,7 +62,7 @@ const updateUser = async (req, res) => {
         }
         const updatedUser = await User.findByIdAndUpdate(req.params.id, user, { after: true, runValidators: true });
         if (!updatedUser) return res.status(404).json({ message: 'User not found' });
-        res.status(201).json(updateUser);
+        res.status(200).json(updatedUser);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
