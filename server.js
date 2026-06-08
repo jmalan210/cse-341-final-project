@@ -18,6 +18,8 @@ app.use((req, res, next) => {
     });
 app.use('/', require('./routes/index.js'));
 
+app.use('/', require('./routes/index.js'));
+
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
