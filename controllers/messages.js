@@ -39,7 +39,8 @@ const getMessagesByDisplayName = async (req, res) => {
         const messages = await Message.find({
 
             user: user._id
-        });
+        })
+            .populate('user', 'displayName');
         res.status(200).json(messages);
     } catch (err) {
         res.status(400).json({ message: err.message });
