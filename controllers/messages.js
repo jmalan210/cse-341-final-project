@@ -5,7 +5,8 @@ const getAllMessages = async (req, res) => {
     //#swagger.tags = ['Messages'] 
     try {
         const messages = await Message.find()
-            .populate('user', 'displayName');
+            .populate('user', 'displayName')
+            .sort({createdAt: -1})
         res.status(200).json(messages);
         
     } catch (err) {
@@ -18,6 +19,9 @@ const getMessageById = async (req, res) => {
     try {
         const message = await Message.findById(req.params.id)
             .populate('user', 'displayName');
+        if (!message) {
+            return res.status(404).json({ message: "Message not found" });
+        }
         res.status(200).json(message);
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -30,7 +34,7 @@ const getMessagesByDisplayName = async (req, res) => {
         const displayName = req.params.displayName;
         const user = await User.findOne({ displayName });
         if (!user) {
-            return res.status(400).json({ message: 'User not found' });
+            return res.status(404).json({ message: 'User not found' });
         }
         const messages = await Message.find({
 
@@ -52,7 +56,7 @@ const createMessage = async (req, res) => {
                body: req.body.body
            }
            const message = await Message.create(newMessage);
-           res.status(201).json(newMessage)
+           res.status(201).json(message)
        } catch (err) {
            res.status(400).json({ message: err.message });
        }
@@ -67,7 +71,10 @@ const updateMessage = async (req, res) => {
             title: req.body.title,
             body: req.body.body
         }
-        const message = await Message.findByIdAndUpdate(req.params.id, updatedMessage);
+        const message = await Message.findByIdAndUpdate(req.params.id, updatedMessage, { new: true, runValidators: true });
+        if (!message) {
+            return res.status(404).json({ message: "Message not found" });
+        }
         res.status(201).json(message)
     } catch (err) {
         res.status(400).json({ message: err.message })

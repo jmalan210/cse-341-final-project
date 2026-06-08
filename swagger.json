@@ -583,6 +583,33 @@
         }
       }
     },
+    "/messages/displayName/{displayName}": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "displayName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/messages/{id}": {
       "get": {
         "tags": [
@@ -603,6 +630,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       },
@@ -643,6 +673,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       },
@@ -668,30 +701,6 @@
           },
           "404": {
             "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/messages/displayName/{displayName}": {
-      "get": {
-        "tags": [
-          "Messages"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "displayName",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       }
