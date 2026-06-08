@@ -50,7 +50,7 @@ const getMeetingByMonth = async (req, res) => {
         res.status(200).json(meetings);
 
     } catch (err) {
-        res.status(500).json({ error: err.messages });
+        res.status(500).json({ error: err.message });
     }
 }
 

@@ -19,8 +19,6 @@ describe("Users GET endpoints", () => {
         expect(Array.isArray(response.body)).toBe(true);
     });
 
-    
-
     test('GET /books/:id returns JSON & 200', async () => {
         const all = await request(app).get('/books');
         expect(all.body.length).toBeGreaterThan(0);
