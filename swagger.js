@@ -5,8 +5,8 @@ const doc = {
         title: 'Final Project',
         description: 'Final Project for CSE 341'
     },
-    host: "localhost:3000",
-    schemes: ['http'],
+    host: "cse-341-final-project-tqxt.onrender.com",
+    schemes: ['https'],
     
 };
 

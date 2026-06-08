@@ -297,7 +297,7 @@
         }
       }
     },
-    "/meetings/month/{month}/{year}": {
+    "/meetings/month/{year}/{month}": {
       "get": {
         "tags": [
           "Meetings"
@@ -305,13 +305,13 @@
         "description": "",
         "parameters": [
           {
-            "name": "month",
+            "name": "year",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "year",
+            "name": "month",
             "in": "path",
             "required": true,
             "type": "string"
