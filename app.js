@@ -30,6 +30,7 @@ app
 
 console.log('CLIENT ID:', process.env.GITHUB_CLIENT_ID);
 console.log('CALLBACK:', process.env.CALLBACK_URL);
+console.log("SECRET EXISTS:", !!process.env.GITHUB_CLIENT_SECRET);
 
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
