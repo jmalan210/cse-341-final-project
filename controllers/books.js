@@ -54,9 +54,9 @@ const updateBook = async (req, res) => {
             genre: req.body.genre,
             status: req.body.status
         }
-        const updatedBook = await Book.findByIdAndUpdate(req.params.id, book);
+        const updatedBook = await Book.findByIdAndUpdate(req.params.id, book, { new: true, runValidators: true});
         if (!updatedBook) return res.status(404).json({ message: 'Book not found' });
-        res.status(201).json(updatedBook);
+        res.status(200).json(updatedBook);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
