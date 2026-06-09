@@ -5,10 +5,10 @@
     "description": "Final Project for CSE 341",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse-341-final-project-tqxt.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {

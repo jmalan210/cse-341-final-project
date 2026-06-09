@@ -28,6 +28,9 @@ app
     .use(cors({origin: '*'}))
     .use('/', require('./routes/index.js'));
 
+console.log('CLIENT ID:', process.env.GITHUB_CLIENT_ID);
+console.log('CALLBACK:', process.env.CALLBACK_URL);
+
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
