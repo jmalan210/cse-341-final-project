@@ -81,9 +81,9 @@ const updateMeeting = async (req, res) => {
             host: req.body.host,
             book: req.body.book
         }
-        const updatedMeeting = await Meeting.findByIdAndUpdate(req.params.id, meeting, { after: true, runValidators: true });
+        const updatedMeeting = await Meeting.findByIdAndUpdate(req.params.id, meeting, { new: true, runValidators: true });
         if (!updatedMeeting) return res.status(404).json({ message: 'Meeting not found' });
-        res.status(201).json(updatedMeeting);
+        res.status(200).json(updatedMeeting);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
