@@ -37,7 +37,7 @@ describe("messages GET endpoints", () => {
         const displayName = 'BookWorm417'
 
         const res = await request(app).get(`/messages/displayName/${displayName}`);
-        console.log(res.body);
+        // console.log(res.body);
 
         expect(res.status).toBe(200);
         expect(res.type).toMatch(/json/);

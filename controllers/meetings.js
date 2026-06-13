@@ -66,7 +66,7 @@ const createMeeting = async (req, res) => {
         const meeting = await Meeting.create(newMeeting);
         res.status(201).json(meeting)
     } catch (err) {
-        console.error(err);
+        // console.error(err);
         res.status(400).json({ message: err.message });
     }
 };
